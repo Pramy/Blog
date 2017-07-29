@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pramy.dao.SectionMapper">
+  <resultMap id="BaseResultMap" type="com.pramy.model.Section">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="section_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creat_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="level" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="creater_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, section_name, creat_time, level, creater_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from section
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectList"  resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM section
+    <where>
+      <if test="section.sectionName!=null">
+        <trim prefix="(" suffix=")" prefixOverrides="or">
+          or section_name like concat(concat('%',#{section.sectionName}),'%')
+          or creat_time like concat(concat('%',#{section.sectionName}),'%')
+          or creater_name like concat(concat('%',#{section.sectionName}),'%')
+        </trim>
+      </if>
+    </where>
+    ORDER BY creater_name desc
+    <if test="page.pageSize!=0">
+      limit #{page.index} , #{page.pageSize}
+    </if>
+  </select>
+
+    <select id="selectCount" parameterType="com.pramy.model.Section" resultType="Integer">
+      SELECT COUNT(*) FROM  section
+      <where>
+        <if test="sectionName!=null">
+          <trim prefix="(" suffix=")" prefixOverrides="or">
+            or section_name like concat(concat('%',#{sectionName}),'%')
+            or creat_time like concat(concat('%',#{sectionName}),'%')
+            or creater_name like concat(concat('%',#{sectionName}),'%')
+          </trim>
+        </if>
+      </where>
+    </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from section
+    where id = #{t.id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pramy.model.Section">
+    insert into section (id, section_name, creat_time, 
+      level, creater_name)
+    values (#{id,jdbcType=INTEGER}, #{sectionName,jdbcType=VARCHAR}, #{creatTime,jdbcType=TIMESTAMP}, 
+      #{level,jdbcType=INTEGER}, #{createrName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pramy.model.Section">
+    insert into section
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sectionName != null">
+        section_name,
+      </if>
+      <if test="creatTime != null">
+        creat_time,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="createrName != null">
+        creater_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sectionName != null">
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null">
+        #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="createrName != null">
+        #{createrName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pramy.model.Section">
+    update section
+    <set>
+      <if test="sectionName != null">
+        section_name = #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatTime != null">
+        creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="createrName != null">
+        creater_name = #{createrName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pramy.model.Section">
+    update section
+    set section_name = #{sectionName,jdbcType=VARCHAR},
+      creat_time = #{creatTime,jdbcType=TIMESTAMP},
+      level = #{level,jdbcType=INTEGER},
+      creater_name = #{createrName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
