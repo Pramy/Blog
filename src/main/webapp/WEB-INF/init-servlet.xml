@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        ">
+
+    <context:component-scan base-package="com.pramy.controller"/>
+
+    <!-- 在使用Excel/PDF/XML的视图时，请先把这个视图解析器注释掉，否则产生视图解析问题-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:order="100"
+          p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
+
+    <mvc:annotation-driven />
+<!--    <bean id="bundleMessageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="i18n"/>
+    </bean>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/"/>
+            <mvc:mapping path="/bind"/>
+            <bean class="com.pramy.bind.interceptor.MyIntercept"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+    <mvc:default-servlet-handler/>
+    <!--文件上传下载-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+</beans>

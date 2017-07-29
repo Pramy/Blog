@@ -20,7 +20,9 @@
             <!-- 载入常用的配置 -->
             <context:property-placeholder location="classpath:db.properties,classpath:druid.properties"/>
             <!-- 注解扫描所有包 -->
-            <context:component-scan base-package="com.pramy"/>
+            <context:component-scan base-package="com.pramy">
+                <context:exclude-filter type="regex" expression="com.pramy.controller.*"/>
+            </context:component-scan>
 
             <context:annotation-config/>
 

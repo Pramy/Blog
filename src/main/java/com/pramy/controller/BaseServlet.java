@@ -1,6 +1,7 @@
 package com.pramy.controller;
 
 import com.pramy.util.StringUtil;
+import org.springframework.stereotype.Controller;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-
+@Controller
 public class BaseServlet extends HttpServlet {
     /**
      * 将请求方法到不同的servlet中的不同方法

@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Blog-mybatis-spring" />
+        <module name="pramy" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="Blog-mybatis-spring" target="1.7" />
+      <module name="pramy" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
