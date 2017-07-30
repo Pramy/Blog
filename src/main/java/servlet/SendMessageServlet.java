@@ -1,9 +1,8 @@
-package com.pramy.controller;
+package servlet;
 
 import com.pramy.model.ChatDate;
 import com.pramy.model.User;
 import com.pramy.service.ChatDateService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.Date;

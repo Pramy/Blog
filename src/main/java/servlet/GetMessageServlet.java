@@ -1,4 +1,4 @@
-package com.pramy.controller;
+package servlet;
 
 
 import com.pramy.model.ChatDate;

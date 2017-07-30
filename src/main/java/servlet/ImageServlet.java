@@ -1,11 +1,10 @@
-package com.pramy.controller;
+package servlet;
 
 import com.pramy.model.MyFile;
 
 import com.pramy.service.MyFileServiceImp;
 import com.pramy.util.PageUtil;
 import com.pramy.util.StringUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.pramy.controller;
+package servlet;
 
 import com.pramy.model.User;
 import com.pramy.model.UserRole;
@@ -9,8 +9,6 @@ import com.pramy.util.JudgeUtil;
 import com.pramy.util.MailUtil;
 import com.pramy.util.OutputUtil;
 import com.pramy.util.StringUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

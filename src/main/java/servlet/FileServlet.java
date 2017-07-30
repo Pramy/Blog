@@ -1,4 +1,4 @@
-package com.pramy.controller;
+package servlet;
 
 
 
@@ -15,7 +15,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.pramy.model.MyFile;
 import com.pramy.model.User;
 import com.pramy.service.MyFileServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
