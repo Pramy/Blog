@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="pramy:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="pramy.war">
-      <element id="artifact" artifact-name="pramy:war exploded" />
-    </root>
-  </artifact>
-</component>
