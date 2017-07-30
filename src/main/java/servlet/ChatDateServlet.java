@@ -1,4 +1,4 @@
-package com.pramy.controller;
+package servlet;
 
 
 
@@ -8,8 +8,6 @@ import com.pramy.service.ChatDateService;
 import com.pramy.util.OutputUtil;
 import com.pramy.util.PageUtil;
 import com.pramy.util.StringUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

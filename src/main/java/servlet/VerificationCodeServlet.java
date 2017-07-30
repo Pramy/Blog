@@ -1,4 +1,4 @@
-package com.pramy.controller;
+package servlet;
   
 import java.awt.*;  
 import java.awt.geom.*;  

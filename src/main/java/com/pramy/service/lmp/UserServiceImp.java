@@ -28,7 +28,9 @@ public class UserServiceImp extends BaseServiceImp<User> implements UserService 
 		boolean flag = false;
 
 		User user1=userMapper.selectByUserName(user);
-		if(user1!=null ){
+		if(user1==null ){
+			flag=false;
+		}else if(user1.getUserPassword().equals(user.getUserPassword())) {
 			flag=true;
 		}
 		return flag;

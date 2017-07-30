@@ -1,11 +1,10 @@
-package com.pramy.controller;
+package servlet;
 
 import com.pramy.model.Role;
 import com.pramy.model.Section;
 import com.pramy.model.User;
 import com.pramy.service.SectionServiceImp;
 import com.pramy.util.PageUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.sql.Timestamp;

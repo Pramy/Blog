@@ -1,12 +1,10 @@
-package com.pramy.controller;
+package servlet;
 
 import com.pramy.model.*;
 import com.pramy.service.*;
 import com.pramy.util.OutputUtil;
 import com.pramy.util.PageUtil;
 import com.pramy.util.StringUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

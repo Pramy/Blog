@@ -1,11 +1,10 @@
-package com.pramy.controller;
+package servlet;
 
 
 import com.pramy.model.User;
 import com.pramy.service.UserServiceImp;
 import com.pramy.util.OutputUtil;
 import com.pramy.util.StringUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         ">
-
+    <import resource="classpath:spring-mybaits.xml"/>
     <context:component-scan base-package="com.pramy.controller"/>
 
     <!-- 在使用Excel/PDF/XML的视图时，请先把这个视图解析器注释掉，否则产生视图解析问题-->

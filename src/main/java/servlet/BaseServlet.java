@@ -1,4 +1,4 @@
-package com.pramy.controller;
+package servlet;
 
 import com.pramy.util.StringUtil;
 import org.springframework.stereotype.Controller;
