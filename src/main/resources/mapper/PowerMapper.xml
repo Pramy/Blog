@@ -3,7 +3,7 @@
 <mapper namespace="com.pramy.dao.PowerMapper">
 
   <!--开启ehcache缓存-->
-  <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+  <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />/-->
 
   <resultMap id="BaseResultMap" type="com.pramy.model.Power">
     <constructor>

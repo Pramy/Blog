@@ -22,4 +22,9 @@ public class User_RoleServiceImp extends BaseServiceImp<UserRole> implements Use
     public BaseMapper<UserRole> getMapper() {
         return userRoleMapper;
     }
+
+    @Override
+    public UserRole selectByUserId(UserRole userRole) {
+        return userRoleMapper.selectByUserId(userRole);
+    }
 }

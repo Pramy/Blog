@@ -6,6 +6,7 @@ import com.pramy.util.PageUtil;
 import org.slf4j.Logger;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,7 +14,6 @@ import java.util.List;
  * IntelliJ IDEA 17
  * Created by Pramy on 2017/7/23.
  */
-
 
 public abstract class BaseServiceImp<T> implements BaseService<T> {
 
@@ -36,7 +36,7 @@ public abstract class BaseServiceImp<T> implements BaseService<T> {
     }
 
     @Override
-    public T selectOne(int id) {
+    public T selectOneById(int id) {
         return (T) getMapper().selectByPrimaryKey(id);
     }
 
@@ -50,8 +50,5 @@ public abstract class BaseServiceImp<T> implements BaseService<T> {
         return getMapper().updateByPrimaryKey(t);
     }
 
-    @Override
-    public T selectOne(T t) {
-        return (T) getMapper().selectOne(t);
-    }
+
 }

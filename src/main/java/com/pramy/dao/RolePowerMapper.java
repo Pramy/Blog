@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RolePowerMapper extends BaseMapper<RolePower> {
-
+    RolePower selectByRoleId(RolePower rolePower);
 }

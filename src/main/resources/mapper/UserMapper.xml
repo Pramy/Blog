@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pramy.dao.UserMapper">
   <!--开启ehcache缓存-->
-  <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+  <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />-->
 
   <resultMap id="BaseResultMap" type="com.pramy.model.User">
     <constructor>
@@ -29,6 +29,12 @@
     <include refid="Base_Column_List" />
     from user
     where user_name = #{userName}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id}
   </select>
   <select id="selectCount" parameterType="com.pramy.model.User" resultType="int">
     SELECT COUNT(*) FROM  user

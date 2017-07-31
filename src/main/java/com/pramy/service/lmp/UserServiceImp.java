@@ -36,4 +36,8 @@ public class UserServiceImp extends BaseServiceImp<User> implements UserService 
 		return flag;
 	}
 
+	@Override
+	public User selectOneByName(User user) {
+		return userMapper.selectByUserName(user);
+	}
 }
