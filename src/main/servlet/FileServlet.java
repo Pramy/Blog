@@ -166,7 +166,7 @@ public class FileServlet extends BaseServlet {
 			}else if(mytype.equals("file")) {
 				servlet="FileServlet?action=select";
 			}
-			request.setAttribute("servlet",servlet );
+			request.setAttribute("src/main/servlet",servlet );
 			request.getRequestDispatcher("uploadResult.jsp").forward(request, response);
 		}
 

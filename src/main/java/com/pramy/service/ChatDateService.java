@@ -8,7 +8,5 @@ import com.pramy.model.ChatDate;
  */
 public interface ChatDateService extends BaseService<ChatDate> {
 
-    void testCache(int id);
 
-    void clear();
 }

@@ -21,9 +21,8 @@
     <!-- 载入常用的配置 -->
     <context:property-placeholder location="classpath:db.properties,classpath:druid.properties"/>
     <!-- 注解扫描所有包 -->
-    <context:component-scan base-package="com.pramy">
-        <context:exclude-filter type="regex" expression="com.pramy.controller.*"/>
-    </context:component-scan>
+    <context:component-scan base-package="com.pramy"/>
+
 
     <context:annotation-config/>
 
@@ -69,7 +68,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 使用xml配置，自动扫描mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath*:mapper/*Mapper.xml"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -77,35 +76,35 @@
         <property name="basePackage" value="com.pramy.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
-    <!--声明事务管理器-->
+    <!--&lt;!&ndash;声明事务管理器&ndash;&gt;-->
 
-    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-    <!--<tx:annotation-driven transaction-manager="txManager"/>-->
-    <tx:advice id="interceptor" transaction-manager="txManager">
-        <tx:attributes>
-            <tx:method name="=select*" read-only="true" />
-            <tx:method name="add"/>
-            <tx:method name="delete"/>
-            <tx:method name="update"/>
-            <tx:method name="total"/>
-        </tx:attributes>
-    </tx:advice>
-        <aop:config>
-            <aop:pointcut id="daoPointCut" expression="execution(* com.pramy.service.lmp.*.*(..))"/>
-            <aop:advisor advice-ref="interceptor" pointcut-ref="daoPointCut"/>
-        </aop:config>
+    <!--<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;<tx:annotation-driven transaction-manager="txManager"/>&ndash;&gt;-->
+    <!--<tx:advice id="interceptor" transaction-manager="txManager">-->
+        <!--<tx:attributes>-->
+            <!--<tx:method name="=select*" read-only="true" />-->
+            <!--<tx:method name="add"/>-->
+            <!--<tx:method name="delete"/>-->
+            <!--<tx:method name="update"/>-->
+            <!--<tx:method name="total"/>-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+        <!--<aop:config>-->
+            <!--<aop:pointcut id="daoPointCut" expression="execution(* com.pramy.service.lmp.*.*(..))"/>-->
+            <!--<aop:advisor advice-ref="interceptor" pointcut-ref="daoPointCut"/>-->
+        <!--</aop:config>-->
 
     <!--事务管理 end-->
 
-    <!--cache 基于Ehcache-->
-    <cache:annotation-driven cache-manager="cacheManager"/>
-    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
-        <property name="cacheManager" ref="cache"/>
-    </bean>
-    <bean id="cache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-        <property name="configLocation" value="classpath:ehcache.xml"/>
-    </bean>
-    <!--cache end-->
+    <!--&lt;!&ndash;cache 基于Ehcache&ndash;&gt;-->
+    <!--<cache:annotation-driven cache-manager="cacheManager"/>-->
+    <!--<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">-->
+        <!--<property name="cacheManager" ref="cache"/>-->
+    <!--</bean>-->
+    <!--<bean id="cache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">-->
+        <!--<property name="configLocation" value="classpath:ehcache.xml"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;cache end&ndash;&gt;-->
 </beans>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pramy.dao.UserRoleMapper">
   <!--开启ehcache缓存-->
-  <cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
+  <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />-->
 
   <resultMap id="BaseResultMap" type="com.pramy.model.UserRole">
     <constructor>
@@ -14,12 +14,19 @@
   <sql id="Base_Column_List">
     id, user_id, role_id
   </sql>
-  <select id="selectOne"  resultMap="BaseResultMap">
+  <select id="selectByUserId"  resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user_role
     where user_id = #{userId}
   </select>
+  <select id="selectByPrimaryKey" parameterType="integer"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_role
+    where id = #{id}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user_role
     where id = #{t.id,jdbcType=INTEGER}

@@ -22,9 +22,6 @@ public interface BaseMapper<T> {
 
     T selectByPrimaryKey(Integer id);
 
-    T selectByUserName(T t);
-
-    T selectOne( T t);
 
     int selectCount(T t);
 

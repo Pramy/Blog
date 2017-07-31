@@ -27,14 +27,5 @@ public class ChatDateServiceImp extends BaseServiceImp<ChatDate> implements Chat
 
 
 
-    @Cacheable(value = "index",key = "#root.method")
-    public void testCache(int id){
-        System.out.println("查询数据");
-    }
-
-    @CacheEvict(value = "index" ,allEntries = true,beforeInvocation = true)
-    public void clear() {
-        System.out.println("清除缓存");
-    }
 
 }
