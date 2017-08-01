@@ -5,6 +5,7 @@ import com.pramy.dao.BaseMapper;
 import com.pramy.dao.UserMapper;
 import com.pramy.model.User;
 import com.pramy.service.UserService;
+import com.pramy.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +27,9 @@ public class UserServiceImp extends BaseServiceImp<User> implements UserService 
 
 	public boolean isExit(User user){
 		boolean flag = false;
-
 		User user1=userMapper.selectByUserName(user);
-		if(user1==null ){
-			flag=false;
-		}else if(user1.getUserPassword().equals(user.getUserPassword())) {
+		if(!StringUtil.isEmpty(user1))
 			flag=true;
-		}
 		return flag;
 	}
 

@@ -3,23 +3,25 @@ package com.pramy.controller;
 import com.pramy.common.CommonResult;
 import com.pramy.model.*;
 import com.pramy.service.*;
-import com.pramy.service.lmp.*;
-import com.pramy.util.PageUtil;
+
 import com.pramy.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
+import static com.pramy.util.CommonUtil.getCommon;
 
 /**
  * IntelliJ IDEA 17
@@ -113,12 +115,23 @@ public class LoginAction {
                 }
             }
         } catch (Exception e) {
-            return getCommon(true,"帐号以在线");
+            return getCommon(true,"帐号已在线","/welcome");
         }
-        return new CommonResult<>(true,"登录成功");
+        return getCommon(true, "登录成功", "/welcome");
     }
 
-    public CommonResult<User> getCommon(boolean flag,String message){
-        return new CommonResult<>(flag,message);
+    @RequestMapping(value = "/welcome",method = RequestMethod.GET)
+    public ModelAndView  welcome(HttpSession session){
+        ModelAndView model=new ModelAndView();
+        User user = (User) session.getAttribute("user");
+        Role role = (Role) session.getAttribute("role");
+        if(StringUtil.isEmpty(user)||StringUtil.isEmpty(role)){
+            model.setViewName("/index");
+        }else {
+            model.setViewName("/section/section");
+        }
+        return model;
     }
+
+
 }

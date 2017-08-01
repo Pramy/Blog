@@ -82,7 +82,7 @@
     delete from user
     where id = #{t.id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.pramy.model.User">
+  <insert id="insert" parameterType="com.pramy.model.User" useGeneratedKeys="true" keyProperty="id">
     insert into user (id, user_name, user_password, 
       email, sex, question, 
       answer, creat_time, last_login_time, 

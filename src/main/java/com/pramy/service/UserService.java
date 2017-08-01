@@ -14,4 +14,6 @@ public interface UserService extends BaseService<User> {
 
 
     User selectOneByName(User user);
+
+    boolean isExit(User user);
 }

@@ -8,7 +8,7 @@
 <title>欢迎来到部落格</title>
 <style type="text/css">    
  body{    
-      background-image: url(images/loginBackground.jpg);    
+      background-image: url(../images/loginBackground.jpg);
       background-repeat: no-repeat;
       background-size: cover;    
  }</style>

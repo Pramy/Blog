@@ -16,6 +16,24 @@ public class CommonResult<T> {
      * 操作结果数据集，用来存储要返回给前端的数据，可以是对象、集合等等
      */
     private T data;
+    /**
+     * 跳转的url
+     */
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public CommonResult(boolean isSuccess, String message, String url) {
+        this.isSuccess = isSuccess;
+        this.message = message;
+        this.url = url;
+    }
 
     public CommonResult(boolean isSuccess) {
         this.isSuccess = isSuccess;

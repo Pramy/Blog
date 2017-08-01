@@ -11,7 +11,7 @@
 <title>分区</title>
 <style type="text/css">    
  body{    
-      background-image: url(../images/loginBackground.jpg);    
+      background-image: url(../../images/loginBackground.jpg);
       background-repeat: no-repeat;
       background-size: cover;    
  }</style>
@@ -44,9 +44,9 @@
 <% Role role = (Role)session.getAttribute("role");
 if(role.getRoleName().equals("超级版主")){
 %>
-<jsp:include page="../section/sectionMenu.jsp"></jsp:include>
+<jsp:include page="../../section/sectionMenu.jsp"></jsp:include>
 <%}%>
-<jsp:include page="../user/userMenu.jsp"></jsp:include>
+<jsp:include page="userMenu.jsp"></jsp:include>
 </head>
 
 <body onload="init()">
@@ -54,7 +54,7 @@ if(role.getRoleName().equals("超级版主")){
 	<div style="text-align: center; width:1000px; height:1000px;	background: white;
 	border-radius: 10px; box-shadow: 0 2px 10px #999;  margin:2% 0 0 0; padding-top: 5px;">
 		<c:if test="${role.roleName eq '普通用户' }">
-		<jsp:forward page="./userUpdate.jsp"></jsp:forward>
+		<jsp:forward page="userUpdate.jsp"></jsp:forward>
 		</c:if>
 			<form onsubmit="return checksearch();" action="UserServlet?action=select"
 				method="post">
