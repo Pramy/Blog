@@ -23,7 +23,9 @@ function go(form,url,type) {
             type:type,
             data:form.serialize(),
             success:function (mdata) {
-                alert(mdata.message);
+                if(mdata.message!=='' ){
+                    alert(mdata.message);
+                }
                 if(mdata.success){
                     location.href=mdata.url;
                 }
@@ -54,7 +56,7 @@ function checkRegister(){
         alert("密码长度为6~16位");
         return false;
     }
-    if(userPassword!=rePassword){
+    if(userPassword!==rePassword){
         alert("两次密码不同");
         return false;
     }
@@ -76,6 +78,39 @@ function checkRegister(){
     }
     if (!sex[0].checked && !sex[1].checked) {
         alert("请选择性别");
+        return false;
+    }
+    return true;
+}
+
+function checkUpdatePassword(){
+    var answer=document.getElementById("answerId").value;
+    var email=document.getElementById("emailId").value;
+    var password=document.getElementById("passwordId").value;
+    var repassword=document.getElementById("repasswordId").value;
+    if(!isLegal(answer) || !isLegal(password) || !isLegal(repassword)){
+        alert("请输入合法的内容");
+        return false;
+    }
+    if(password.length<6 ||repassword.length<6){
+        alert("密码长度不能低于6位");
+        return false;
+    }
+    if(!isEmail(email)){
+        alert("邮箱格式有误");
+        return false;
+    }
+    if(password!==repassword){
+        alert("两次输入的密码不同");
+        return false;
+    }
+    return true;
+}
+
+function checkfind(){
+    var userName=document.getElementsByName("userName")[0].value;
+    if(!isLegal(userName)){
+        alert("请输入合法的内容");
         return false;
     }
     return true;

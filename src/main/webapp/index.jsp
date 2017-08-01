@@ -1,17 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 
 <title>欢迎来到部落格</title>
-<style type="text/css">    
- body{    
-      background-image: url(images/loginBackground.jpg);    
-      background-repeat: no-repeat;
-      background-size: cover;    
- }</style>
+	<link rel="stylesheet" href="Js/css.css" type="text/css" />
 <script type="text/javascript" src="Js/jquery-3.2.1.js"></script>
 <script type="text/javascript" src="Js/myJs.js"></script>
 <script type="text/javascript">

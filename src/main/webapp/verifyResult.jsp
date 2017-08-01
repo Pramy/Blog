@@ -1,20 +1,12 @@
-<%@page import="com.pramy.model.Role"%>
-<%@page import="com.pramy.model.Section"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<link rel="stylesheet" href="/Js/css.css" type="text/css" />
+<link rel="stylesheet" href="Js/css.css" type="text/css" />
 
 <title>${message}</title>
-<style type="text/css">    
- body{    
-      background-image: url(../images/loginBackground.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;    
- }</style>
-<script type="text/javascript" >
+	<script type="text/javascript" >
 onload=function(){  
     setInterval(go, 1000);  
 };  

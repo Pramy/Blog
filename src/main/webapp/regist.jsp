@@ -5,12 +5,7 @@
 	pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>注册</title>
-<style type="text/css">    
- body{    
-      background-image: url(images/loginBackground.jpg);    
-      background-repeat: no-repeat;
-      background-size: cover;    
- }</style>
+<link rel="stylesheet" href="Js/css.css" type="text/css"/>
 <script type="text/javascript" src="Js/myJs.js"></script>
     <script type="text/javascript" src="Js/jquery-3.2.1.js"></script>
 	<script type="text/javascript">
@@ -49,8 +44,8 @@
 				<br>
 				<input type="submit" value="注册" style="width: 200px; height: 30px; background-color: #37D890; color: white; border: 0; border-radius: 4px;" />
 			</form>
-		  	<a href="index.jsp" style="font-size: 12px;">返回登录</a> <a
-				href="regist.jsp" style="font-size: 12px;">找回密码</a>
+		  	<a href="/index.jsp" style="font-size: 12px;">返回登录</a> <a
+				href="/findPassword.jsp" style="font-size: 12px;">找回密码</a>
 		</div>
 	</center>
 </body>

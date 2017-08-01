@@ -9,17 +9,12 @@
 <html>
 <head>
 
-<title>分区</title>
-<style type="text/css">    
- body{    
-      background-image: url(./images/loginBackground.jpg);    
-      background-repeat: no-repeat;
-      background-size: cover;    
- }</style>
-<link rel="stylesheet" href="../Js/css.css" type="text/css" />
+<title>验证</title>
+
+<link rel="stylesheet" href="Js/css.css" type="text/css" />
 <script type="text/javascript">
 function check(){
-	var test=document.myfrom.mailCode.value;
+	var test=document.myfrom.verifyCode.value;
 	if(test==""){
 		alert("验证码不能为空");
 		return false;
@@ -34,11 +29,11 @@ function check(){
 		<div style="text-align: center; width:1000px; height:600px;	background: white;
 	box-shadow: 0 2px 10px #999;  margin:2% 0 0 0;">
 			<div style="padding-top:250px;">
-				<form name="myfrom" action="RegistServlet?action=verify" method="post" onsubmit="return check()">
-			用户名：<input type="text" disabled="disabled"  name="userName" value="${temepUser.userName } "style="width: 200px; height: 30px; margin-bottom: 10px; padding-left: 3px; border: 1px solid #999;border-radius: 4px;" /><br>
-			邮箱：<input type="text" disabled="disabled" name="mail" value="${temepUser.email }" style="width: 200px; height: 30px; margin-bottom: 16px;padding-left: 3px; border: 1px solid #999;border-radius: 4px;" /><br>
-			<input type="text" name ="mailCode"style="width: 95px; height: 30px; margin-bottom: 16px; padding-left: 3px; border: 1px solid #999; border-radius: 4px;"
-					placeholder="验证码">
+				<form name="myfrom" action="/user/finish" method="post" onsubmit="return check()">
+			用户名：<input disabled="disabled" name="userName" value="${temepUser.userName } " style="width: 200px; height: 30px; margin-bottom: 10px; padding-left: 3px; border: 1px solid #999;border-radius: 4px;" /><br>
+			邮箱：<input disabled="disabled" name="mail" value="${temepUser.email }" style="width: 200px; height: 30px; margin-bottom: 16px;padding-left: 3px; border: 1px solid #999;border-radius: 4px;" /><br>
+			<input name ="verifyCode" style="width: 95px; height: 30px; margin-bottom: 16px; padding-left: 3px; border: 1px solid #999; border-radius: 4px;"
+				   placeholder="验证码">
 			<input type="submit" value="确定" style="width: 200px; height: 30px; background-color: #37D890; color: white; border: 0; border-radius: 4px;" />
 				</form>
 			</div>

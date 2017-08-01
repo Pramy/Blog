@@ -65,9 +65,9 @@ public class UserAction {
 
         String mailCode = getVerifyCode();
         session.setAttribute("mailCode", mailCode);
-//        String content = "用户：" + user.getUserName() + "你好！你的验证码为：" + mailCode;
+        String content = "用户：" + user.getUserName() + "你好！你的验证码为：" + mailCode;
 
-//        MailUtil.sendMail(user.getEmail(),user.getUserName(),content);
+        MailUtil.sendMail(user.getEmail(),user.getUserName(),content);
         return getCommon(true,"请输入你收到的验证码","/user/verify");
     }
 
@@ -116,6 +116,6 @@ public class UserAction {
         for (int i = 0; i < 4; i++) {
             code.append(random.nextInt(10));
         }
-        return "1234";
+        return code.toString();
     }
 }

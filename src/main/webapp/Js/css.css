@@ -2,3 +2,7 @@
 	background-color: #9C221F;
 	color:white;
 }
+body{
+	background: url(/images/loginBackground.jpg) no-repeat;
+	background-size: cover;
+}

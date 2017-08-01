@@ -12,7 +12,7 @@
 <title>用户信息</title>
 <style type="text/css">    
  body{    
-      background-image: url(../../images/loginBackground.jpg);
+      background-image: url(../images/loginBackground.jpg);
       background-repeat: no-repeat;
       background-size: cover;    
  }</style>
@@ -64,7 +64,7 @@
 <% Role role = (Role)session.getAttribute("role");
 if(role.getRoleName().equals("超级版主")){
 %>
-<jsp:include page="../../section/sectionMenu.jsp"></jsp:include>
+<jsp:include page="../section/sectionMenu.jsp"></jsp:include>
 <%}%>
 <jsp:include page="userMenu.jsp"></jsp:include>
 </head>
