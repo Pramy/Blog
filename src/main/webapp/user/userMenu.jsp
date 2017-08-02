@@ -8,7 +8,12 @@
 <link >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../Js/css.css" type="text/css" />
+<%--<link rel="stylesheet" href="../Js/css.css" type="text/css" />--%>
+<script type="text/javascript">
+	function logout() {
+		$.post("/logout");
+    }
+</script>
 </head>
 <body>
 <div style="text-align: center;float:right; width:150px; height:300px;	background: white; box-shadow: 0 2px 10px #999;  margin-right:5%;">
@@ -17,7 +22,7 @@
 	<%--</c:if>--%>
 	<a class="mya" style="width:150px; height: 75px; float:right; border-bottom: 1px solid #999;line-height:75px;text-decoration:none;" href="userUpdate.jsp" >修改信息</a>
 	<a class="mya" style="width:150px; height: 75px; float:right; border-bottom: 1px solid #999;line-height:75px;text-decoration:none;" href="../section/SectionServlet" >返回首页</a>
-	<a class="mya" style="width:150px; height: 75px; float:right; line-height:75px;text-decoration:none;" href="../logout.jsp?message=注销成功" >注销</a>
+	<a class="mya" style="width:150px; height: 75px; float:right; line-height:75px;text-decoration:none;" href="" onclick="logout()" >注销</a>
 </div>
 </body>
 </html>

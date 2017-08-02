@@ -34,8 +34,8 @@ function check() {
 			新密码：<input type="password" name="rePassword" id="repasswordId"   style="width: 200px; height: 30px; margin-bottom: 10px; padding-left: 3px; border: 1px solid #999;border-radius: 4px;"placeholder="重新输入密码" /><br>
 			<input type="submit" value="修改" style="width: 200px; height: 30px; background-color: #37D890; color: white; border: 0; border-radius: 4px;" /><br>
 			</form>
-			<a href="index.jsp" style="font-size:12px;">返回登录</a>
-			<a href="regist.jsp" style="font-size:12px;">点击注册</a>
+			<a href="/index.jsp" style="font-size:12px;">返回登录</a>
+			<a href="/regist.jsp" style="font-size:12px;">点击注册</a>
 
 			</div>
 	</center>

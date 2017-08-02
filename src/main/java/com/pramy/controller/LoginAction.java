@@ -4,9 +4,11 @@ import com.pramy.common.CommonResult;
 import com.pramy.model.*;
 import com.pramy.service.*;
 
+import com.pramy.util.PageUtil;
 import com.pramy.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +19,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.pramy.util.CommonUtil.getCommon;
@@ -40,6 +44,8 @@ public class LoginAction {
     private Role_PowerService rp;
     @Autowired
     private PowerService ps;
+    @Autowired
+    private SectionService sectionService;
 
     @ResponseBody
     @RequestMapping("/login")
@@ -101,7 +107,7 @@ public class LoginAction {
         session.setAttribute("user", user);
         session.setAttribute("role", role);
 //        session.setAttribute("power", Powerlist);
-
+        String message="登录成功";
         try {
             if (map.get(user.getUserName()) == null) {
                 map.put(user.getUserName(), session);
@@ -112,12 +118,15 @@ public class LoginAction {
                     map.put(user.getUserName(), session);
                     appliction.setAttribute("onlineUserMap", map);
                     session2.invalidate();
+                    message="用户已在线";
                 }
             }
         } catch (Exception e) {
-            return getCommon(true,"帐号已在线","/welcome");
+
+        }finally {
+
+            return getCommon(true,message , "/welcome");
         }
-        return getCommon(true, "登录成功", "/welcome");
     }
 
     @RequestMapping(value = "/welcome",method = RequestMethod.GET)
@@ -129,9 +138,26 @@ public class LoginAction {
             model.setViewName("/index");
         }else {
             model.setViewName("/section/section");
+            PageUtil pageUtil = new PageUtil();
+            pageUtil.setPageSize(0);
+            List<Section> list = sectionService.selectList(new Section(),pageUtil);
+            for (Section section:list
+                    ) {
+                section.setCreatTime(new Timestamp(section.getCreatTime().getTime()));
+            }
+            session.setAttribute("sectionList", list);
         }
         return model;
     }
 
+    @RequestMapping(value = "/logout",method = RequestMethod.POST)
+    private String logout(HttpSession session){
+        ServletContext servletContext = session.getServletContext();
+        Map<String,HttpSession> map = (Map<String, HttpSession>) servletContext.getAttribute("onlineUserMap");
+        User user = (User) session.getAttribute("user");
+        map.remove(user.getUserName());
+        session.invalidate();
+        return "index";
+    }
 
 }

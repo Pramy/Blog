@@ -1,9 +1,13 @@
 package com.pramy.service.lmp;
 
+import com.pramy.dao.SectionMapper;
+import com.pramy.model.Section;
 import com.pramy.model.User;
 import com.pramy.model.UserRole;
+import com.pramy.service.SectionService;
 import com.pramy.service.UserService;
 import com.pramy.service.User_RoleService;
+import com.pramy.util.PageUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +30,10 @@ public class User_RoleServiceImpTest {
     private User_RoleService urs;
     @Autowired
     private UserService us;
+    @Autowired
+    private SectionService sectionService;
+    @Autowired
+    private SectionMapper sectionMapper;
     @Test
     public void selectByUserId() throws Exception {
         UserRole userRole = new UserRole();
@@ -38,6 +46,11 @@ public class User_RoleServiceImpTest {
         User user = new User();
         user.setUserName("ccl");
         us.add(user);
-        System.out.println(user.getId());
+        Section section = new Section();
+        PageUtil pageUtil = new PageUtil();
+        pageUtil.setPageSize(0);
+        System.out.println(sectionService.selectList(section,pageUtil));
+
     }
+
 }

@@ -10,13 +10,9 @@
 <head>
 
 <title>分区</title>
-<style type="text/css">    
- body{    
-      background-image: url(../images/loginBackground.jpg);    
-      background-repeat: no-repeat;
-      background-size: cover;    
- }</style>
-<link rel="stylesheet" href="../Js/css.css" type="text/css" />
+<script type="text/javascript" src="/Js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="/Js/myJs.js"></script>
+<link rel="stylesheet" href="/Js/css.css" type="text/css" />
  
 <script type="text/javascript">
 function check(agr){	
@@ -28,7 +24,6 @@ function check(agr){
 	}
 	return true;
 }
-
 </script>
 <% Role role = (Role)session.getAttribute("role");
    User user = (User)session.getAttribute("user");
@@ -39,7 +34,7 @@ if(role.getRoleName().equals("超级版主")){
 <jsp:include page="../user/userMenu.jsp"></jsp:include>
 </head>
 
-<body>
+<body >
 	<center>
 		<div style="text-align: center; width:1000px; height:600px;	background: white;
 	box-shadow: 0 2px 10px #999;  margin:2% 0 0 0;">

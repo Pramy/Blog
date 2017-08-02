@@ -27,7 +27,7 @@
     <include refid="Base_Column_List"/>
     FROM section
     <where>
-      <if test="section.sectionName!=null">
+      <if test="t.sectionName!=null">
         <trim prefix="(" suffix=")" prefixOverrides="or">
           or section_name like concat(concat('%',#{section.sectionName}),'%')
           or creat_time like concat(concat('%',#{section.sectionName}),'%')
