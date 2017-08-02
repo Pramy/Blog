@@ -1,9 +1,10 @@
 package com.pramy.listener;
 
 
+import com.pramy.common.SpringContextHolder;
 import com.pramy.model.User;
-import com.pramy.service.UserServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.pramy.service.UserService;
+import com.pramy.util.StringUtil;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
@@ -16,20 +17,19 @@ import javax.servlet.http.HttpSessionListener;
  *
  */
 public class SessionListenner implements HttpSessionListener {
-    @Autowired
-    private UserService us;
-    public void sessionCreated(HttpSessionEvent arg0)  { 
-    	HttpSession session = arg0.getSession();
-         System.out.println("创建id："+session.getId());
+
+    public void sessionCreated(HttpSessionEvent arg0)  {
+
     }
 
     public void sessionDestroyed(HttpSessionEvent arg0)  { 
          HttpSession session = arg0.getSession();
          User user = (User)session.getAttribute("user");
-         if(user==null){
-        	 return;
+         if(StringUtil.isEmpty(user)){
+             return;
          }
-         System.out.println("用户下线，更新状态");
+        UserService us= (UserService) SpringContextHolder.getBean("userServiceImp");
+         System.out.println("用户："+user.getUserName()+"下线，更新状态");
          us.update(user);
     }
 	

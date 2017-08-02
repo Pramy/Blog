@@ -9,17 +9,18 @@
 <head>
 
 <title>分区</title>
-<script type="text/javascript" src="../Js/partern.js"></script>
+<script type="text/javascript" src="/Js/partern.js"></script>
 <script type="text/javascript">
 function check(){
+    var totalPage=${totalPage};
 	var pageNo = document.getElementById("pageNo").value;
 	var pageSize = document.getElementById("pageSize").value;
 	if(!isDigit(pageNo) || pageNo==0 || !isDigit(pageSize) || pageSize==0){
 		alert("请输正确页数！");
 		return false;
 	}
-	if(pageNo >${totalPage}){
-		alert("最多只有 "+${totalPage}+" 页");
+	if(pageNo >totalPage){
+		alert('最多只有 '+totalPage+' 页');
 		return false;
 	}
 	return ture;

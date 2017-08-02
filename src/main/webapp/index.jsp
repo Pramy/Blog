@@ -6,13 +6,13 @@
 <head>
 
 <title>欢迎来到部落格</title>
-	<link rel="stylesheet" href="Js/css.css" type="text/css" />
-<script type="text/javascript" src="Js/jquery-3.2.1.js"></script>
-<script type="text/javascript" src="Js/myJs.js"></script>
+	<link rel="stylesheet" href="/Js/css.css" type="text/css" />
+<script type="text/javascript" src="/Js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="/Js/myJs.js"></script>
 <script type="text/javascript">
 	function test() {
 		if(checkLogin()){
-		    go($('#loginForm'),"/login","post");
+		    go($('#loginForm'),"/login.do","post");
 		}
 		return false;
 	}

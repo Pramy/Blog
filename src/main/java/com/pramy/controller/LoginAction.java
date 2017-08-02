@@ -48,7 +48,7 @@ public class LoginAction {
     private SectionService sectionService;
 
     @ResponseBody
-    @RequestMapping("/login")
+    @RequestMapping("/login.do")
     public CommonResult<User> login(User user, @RequestParam("code") String code, HttpServletRequest request){
         HttpSession session = request.getSession();
 
@@ -125,11 +125,11 @@ public class LoginAction {
 
         }finally {
 
-            return getCommon(true,message , "/welcome");
+            return getCommon(true,message , "/welcome.do");
         }
     }
 
-    @RequestMapping(value = "/welcome",method = RequestMethod.GET)
+    @RequestMapping(value = "/welcome.do",method = RequestMethod.GET)
     public ModelAndView  welcome(HttpSession session){
         ModelAndView model=new ModelAndView();
         User user = (User) session.getAttribute("user");
@@ -150,13 +150,14 @@ public class LoginAction {
         return model;
     }
 
-    @RequestMapping(value = "/logout",method = RequestMethod.POST)
-    private String logout(HttpSession session){
+    @RequestMapping(value = "/logout")
+    public String logout(HttpSession session){
         ServletContext servletContext = session.getServletContext();
         Map<String,HttpSession> map = (Map<String, HttpSession>) servletContext.getAttribute("onlineUserMap");
         User user = (User) session.getAttribute("user");
         map.remove(user.getUserName());
         session.invalidate();
+        System.out.println("销毁session");
         return "index";
     }
 

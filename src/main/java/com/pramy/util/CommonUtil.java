@@ -12,10 +12,10 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class CommonUtil {
 
-    public static CommonResult<User> getCommon(boolean flag, String message){
-        return new CommonResult<>(flag,message);
+    public static CommonResult getCommon(boolean flag, String message){
+        return new CommonResult(flag,message);
     }
-    public static CommonResult<User> getCommon(boolean flag, String message,String url){
-        return new CommonResult<>(flag,message,url);
+    public static CommonResult getCommon(boolean flag, String message,String url){
+        return new CommonResult(flag,message,url);
     }
 }

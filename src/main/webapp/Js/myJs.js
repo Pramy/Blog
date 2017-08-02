@@ -25,6 +25,7 @@ function go(form,url,type) {
             success:function (mdata) {
                 if(mdata.message!=='' ){
                     alert(mdata.message);
+                    alert(mdata.url);
                 }
                 if(mdata.success){
                     location.href=mdata.url;
@@ -118,3 +119,6 @@ function checkfind(){
 function refresh(){
     document.getElementById("verificationCode").src ="/code?"+ new Date().getTime();
 }
+
+
+

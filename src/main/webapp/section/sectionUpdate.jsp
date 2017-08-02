@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.pramy.model.Role"%>
 <%@page import="com.pramy.model.Section"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
@@ -7,13 +8,11 @@
 <head>
 
 <title>分区</title>
-<style type="text/css">    
- body{    
-      background-image: url(../images/loginBackground.jpg);    
-      background-repeat: no-repeat;
-      background-size: cover;    
- }</style>
-<script type="text/javascript" src="../Js/partern.js"></script>
+<title>分区</title>
+<script type="text/javascript" src="<c:url value="/Js/jquery-3.2.1.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/Js/myJs.js"/>"></script>
+<link rel="stylesheet" href="<c:url value="/Js/css.css"/>" type="text/css" />
+<script type="text/javascript" src="<c:url value="/Js/partern.js"/>"></script>
 <script type="text/javascript">
 function check(){
 	var name =document.getElementById("sectionNameId").value;
@@ -34,9 +33,9 @@ function check(){
 Role role = (Role)session.getAttribute("role");
 if(role.getRoleName().equals("超级版主")){
 %>
-<jsp:include page="../section/sectionMenu.jsp"></jsp:include>
+<jsp:include page="/section/sectionMenu.jsp"></jsp:include>
 <%}%>
-<jsp:include page="../user/userMenu.jsp"></jsp:include>
+<jsp:include page="/user/userMenu.jsp"></jsp:include>
 </head>
 
 <body>

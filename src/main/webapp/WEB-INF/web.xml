@@ -33,6 +33,21 @@
     <servlet-name>init</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <filter>
+    <filter-name>loginfilter</filter-name>
+    <filter-class>com.pramy.filter.LoginFilter</filter-class>
+    <init-param>
+      <param-name>url</param-name>
+      <param-value>login.do</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginfilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>com.pramy.listener.SessionListenner</listener-class>
+  </listener>
   <!--<servlet>-->
     <!--<description></description>-->
     <!--<display-name>VerificationCodeServlet</display-name>-->
